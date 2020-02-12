@@ -1,31 +1,24 @@
 const initialState = {
-	age: 21,
-	history: [],
+    a:1,
+    b:1
 };
 
 const reducer = (state = initialState, action) => {
-	const newState = { ...state };
+    const newState = {...state}
 
-	switch (action.type) {
-		case 'AGE_UP':
-			return {
-				...state,
-				age: state.age + action.value,
-				history: state.history.concat({ id: Math.random(), age: state.age + action.value }),
-			};
-		case 'AGE_DOWN':
-			return {
-				...state,
-				age: state.age - action.value,
-				history: state.history.concat({ id: Math.random(), age: state.age - action.value }),
-			};
-
-		case 'DEL_ITEM':
-			return {
-				...state,
-				history: state.history.filter(el => el.id !== action.key),
-			};
-	}
+    if(action.type === 'UPDATE_A'){
+        return {
+            ...state,
+            a:state.a + state.b
+        }
+    }
+    if(action.type === 'UPDATE_B'){
+        return {
+            ...state,   
+            b:state.a + state.b
+        }
+    }
+    
 	return newState;
 };
 
