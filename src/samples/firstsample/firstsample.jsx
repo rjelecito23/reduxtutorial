@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './firstsample.css'
+import * as actionCreator from '../../store/actions/actions'
 
 class FirstSample extends Component {
 	render() {
 		return (
 			<div className="App">
-				<div>
-					Age:<span>{this.props.age}</span>
+				<div className='Age-label'>
+					Your Age:<span>{this.props.age}</span>
 				</div>
 				<button onClick={this.props.onAgeUp}>Age Up</button>
 				<button onClick={this.props.onAgeDown}>Age Down</button>
+				{this.props.loading && <p>Loading...</p>}
 				<hr />
-
-				<div>History</div>
-				<div>
-					<ul>
-						{this.props.history.map(el => (
-							<li className="historyItem" key={el.id} onClick={() => this.props.onDelItem(el.id)}>
-								{el.age}
-							</li>
-						))}
-					</ul>
-				</div>
 			</div>
 		);
 	}
@@ -32,14 +23,14 @@ const mapStateToProps = state => {
 	return {
 		age: state.age,
 		history: state.history,
+		loading: state.loading
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onAgeUp: () => dispatch({ type: 'AGE_UP', value: 1 }),
-		onAgeDown: () => dispatch({ type: 'AGE_DOWN', value: 1 }),
-		onDelItem: id => dispatch({ type: 'DEL_ITEM', key: id }),
+		onAgeUp: () => dispatch(actionCreator.ageUp(1)),
+		onAgeDown: () => dispatch(actionCreator.ageDown(1)),
 	};
 };
 

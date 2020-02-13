@@ -44,3 +44,17 @@
     padding: 10px, 0;
     background-color: #f7e8bc70;
   }
+
+  .Age-label {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  button {
+    margin-left: 10px;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom:10px;
+  }

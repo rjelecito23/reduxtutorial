@@ -6,8 +6,8 @@ import SecondSample from './samples/secondsample/secondsample'
 function App() {
 	return (
 		<div>
-			{/* <FirstSample /> */}
-			<SecondSample />
+			<FirstSample />
+			{/* <SecondSample /> */}
 		</div>
 	);
 }
